@@ -1,5 +1,6 @@
 package com.example.car_mgnt_backend.controller;
 
+import com.example.car_mgnt_backend.dto.AddFuelResponse;
 import com.example.car_mgnt_backend.dto.CreateCarRequest;
 import com.example.car_mgnt_backend.dto.FuelStatsResponse;
 import com.example.car_mgnt_backend.model.Car;
@@ -30,12 +31,12 @@ public class CarController {
     }
 
     @PostMapping("/{id}/fuel")
-    public ResponseEntity<Void> addFuel(
+    public ResponseEntity<AddFuelResponse> addFuel(
             @PathVariable Long id,
             @RequestBody FuelEntry entry
     ) {
         carService.addFuel(id, entry);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(new AddFuelResponse("Fuel added successfully"));
     }
 
     @GetMapping("/{id}/fuel/stats")
