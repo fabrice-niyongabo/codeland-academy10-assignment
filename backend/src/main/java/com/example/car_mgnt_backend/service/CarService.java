@@ -1,6 +1,6 @@
 package com.example.car_mgnt_backend.service;
 
-import com.example.car_mgnt_backend.dto.FuelStats;
+import com.example.car_mgnt_backend.dto.FuelStatsResponse;
 import com.example.car_mgnt_backend.exceptions.NotFoundException;
 import com.example.car_mgnt_backend.model.Car;
 import com.example.car_mgnt_backend.model.FuelEntry;
@@ -41,7 +41,7 @@ public class CarService {
         car.getFuelEntries().add(entry);
     }
 
-    public FuelStats calculateStats(Long carId) {
+    public FuelStatsResponse calculateStats(Long carId) {
         Car car = getCarById(carId);
 
         List<FuelEntry> entries = car.getFuelEntries();
