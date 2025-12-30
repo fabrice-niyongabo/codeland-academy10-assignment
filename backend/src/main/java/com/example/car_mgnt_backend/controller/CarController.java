@@ -7,6 +7,7 @@ import com.example.car_mgnt_backend.model.Car;
 import com.example.car_mgnt_backend.model.FuelEntry;
 import com.example.car_mgnt_backend.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class CarController {
 
     @PostMapping
     public ResponseEntity<Car> createCar(@RequestBody CreateCarRequest req) {
-        return ResponseEntity.ok(
+        return ResponseEntity.status(HttpStatus.CREATED).body(
                 carService.createCar(req.getBrand(), req.getModel(), req.getYear())
         );
     }
@@ -36,7 +37,7 @@ public class CarController {
             @RequestBody FuelEntry entry
     ) {
         carService.addFuel(id, entry);
-        return ResponseEntity.ok(new AddFuelResponse("Fuel added successfully"));
+        return ResponseEntity.status(HttpStatus.CREATED).body(new AddFuelResponse("Fuel added successfully"));
     }
 
     @GetMapping("/{id}/fuel/stats")
