@@ -18,8 +18,8 @@ This project consists of two main components:
 ### 1. Clone and Setup
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd car-management-system
+git clone https://github.com/fabrice-niyongabo/codeland-academy10-assignment.git
+cd codeland-academy10-assignment
 ```
 
 ### 2. Build and Run Backend Server
@@ -36,7 +36,6 @@ The server will start at: `http://localhost:8080`
 ### 3. Build and Run CLI Client
 While the previous terminal is still open (and the backend server is running), open another separate terminal and
 ```bash
-# Open a new terminal
 cd cli
 
 # Build the CLI
@@ -67,29 +66,6 @@ java -jar target/cli.jar fuel-stats --carId 1
 ### Servlet Endpoint
 - **GET** `/servlet/fuel-stats?carId={id}` - Servlet implementation demonstrating manual request handling
 
-## 💻 CLI Commands
-
-Once the CLI is running, use these commands:
-
-### 1. Create a Car
-```
-create-car --brand Toyota --model Corolla --year 2018
-```
-
-### 2. Add Fuel Entry
-```
-add-fuel --carId 1 --liters 40 --price 52.5 --odometer 45000
-```
-
-### 3. Get Fuel Statistics
-```
-fuel-stats --carId 1
-```
-
-### 4. Exit Application
-```
-exit
-```
 
 ## 🎯 Assignment Requirements Checklist
 
