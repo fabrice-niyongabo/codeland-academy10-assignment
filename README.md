@@ -53,8 +53,6 @@ java -jar target/cli.jar add-fuel --carId 1 --liters 38.2 --price 1.90 --odomete
 java -jar target/cli.jar fuel-stats --carId 1
 ```
 
-## 📡 API Endpoints
-
 ### REST API Endpoints
 | Method | Endpoint | Description | Request Body |
 |--------|----------|-------------|--------------|
