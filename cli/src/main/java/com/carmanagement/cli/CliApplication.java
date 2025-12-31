@@ -68,9 +68,8 @@ public class CliApplication {
         }
 
         String jsonBody = String.format(
-            "{\"brand\":\"%s\",\"model\":\"%s\",\"year\":%d}",
-            escapeJson(brand), escapeJson(model), year
-        );
+                "{\"brand\":\"%s\",\"model\":\"%s\",\"year\":%d}",
+                escapeJson(brand), escapeJson(model), year);
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/api/cars"))
@@ -114,9 +113,8 @@ public class CliApplication {
         }
 
         String jsonBody = String.format(
-            "{\"liters\":%.2f,\"price\":%.2f,\"odometer\":%d}",
-            liters, price, odometer
-        );
+                "{\"liters\":%.2f,\"price\":%.2f,\"odometer\":%d}",
+                liters, price, odometer);
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/api/cars/" + carId + "/fuel"))
@@ -176,7 +174,7 @@ public class CliApplication {
         JsonNode rootNode = objectMapper.readTree(json);
         double totalFuel = rootNode.get("totalFuel").asDouble();
         double totalCost = rootNode.get("totalCost").asDouble();
-        double averageConsumption = rootNode.get("averageConsumption").asDouble();
+        double averageConsumption = rootNode.get("avgConsumption").asDouble();
 
         System.out.println("Total fuel: " + formatFuel(totalFuel) + " L");
         System.out.println("Total cost: " + formatCost(totalCost));
@@ -211,10 +209,10 @@ public class CliApplication {
 
     private static String escapeJson(String str) {
         return str.replace("\\", "\\\\")
-                  .replace("\"", "\\\"")
-                  .replace("\n", "\\n")
-                  .replace("\r", "\\r")
-                  .replace("\t", "\\t");
+                .replace("\"", "\\\"")
+                .replace("\n", "\\n")
+                .replace("\r", "\\r")
+                .replace("\t", "\\t");
     }
 
     private static void printUsage() {
@@ -224,4 +222,3 @@ public class CliApplication {
         System.out.println("  fuel-stats --carId <id>");
     }
 }
-
